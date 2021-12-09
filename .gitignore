@@ -1,0 +1,3 @@
+vendor/
+.idea/
+phantomjs*.tar.bz2

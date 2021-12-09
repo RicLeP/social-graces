@@ -1,0 +1,19 @@
+name: social-graces2
+recipe: laravel
+config:
+  webroot: public
+  php: '8.0'
+  services:
+    appserver:
+      install_dependencies_as_root:
+        - "apt update -y"
+        - "apt-get install -y libfreetype6 libfreetype6-dev"
+        - "apt-get install -y libfontconfig1 libfontconfig1-dev"
+        - "apt-get install -y -f libnss3 libnspr4 libgbm-dev libasound2"
+        - "apt-get install -y nodejs npm"
+        - "cd ~"
+        - "export PHANTOM_JS='phantomjs-2.1.1-linux-x86_64' ; export export OPENSSL_CONF=/etc/ssl/ ; wget -N https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 ; tar xvjf $PHANTOM_JS.tar.bz2 ; mv $PHANTOM_JS /usr/local/share ; ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin ; phantomjs --version"
+        - "curl -sL https://deb.nodesource.com/setup_14.x"
+        - "apt-get install -y nodejs"
+        - "npm install --global --unsafe-perm puppeteer"
+        - "chmod -R o+rx /usr/local/lib/node_modules/puppeteer/.local-chromium"
