@@ -23,9 +23,8 @@ class TestCase extends Orchestra
 	protected function getEnvironmentSetUp($app)
 	{
 		$app['config']->set('social_graces.chromium_arguments', ['no-sandbox']);
-
-		$app->useStoragePath(__DIR__.'/temp');
-
+		$app['config']->set('social_graces.save_path', __DIR__.'/temp');
+		$app['config']->set('social_graces.public_path', 'storage/');
 	}
 
 	protected function emptyTempDirectory()

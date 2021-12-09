@@ -4,9 +4,28 @@ namespace Riclep\SocialGraces;
 
 class Grace
 {
-	// core grace for a URL on the site - has many Manners.
+	protected $source;
 
-	public function manner() {
-		
+	public function manners() {
+		foreach ($this->demeanours as $demeanour) {
+			$mannerClass = $demeanour['manner'];
+			$manner = new $mannerClass();
+
+			if ($this->source) {
+				$manner->source($this->source);
+			}
+
+			$manner->run();
+		}
+	}
+
+	public function demeanour($network) {
+		return $this->demeanours[$network];
+	}
+
+	public function source($source) {
+		$this->source = $source;
+
+		return $this;
 	}
 }
