@@ -2,9 +2,10 @@
 
 namespace Riclep\SocialGraces\Tests;
 
-use Riclep\SocialGraces\Tests\Fixtures\ExampleGrace;
+use Riclep\SocialGraces\Tests\Fixtures\NetworkGrace;
 use Riclep\SocialGraces\Tests\Fixtures\ExampleJpgManner;
 use Riclep\SocialGraces\Tests\Fixtures\ExampleManner;
+use Riclep\SocialGraces\Tests\Fixtures\TestGrace;
 
 class SocialGracesTest extends TestCase
 {
@@ -86,18 +87,30 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_run_manners_in_grace()
 	{
-		$grace = new ExampleGrace();
-		$grace->manners();
+		$grace = new NetworkGrace();
+		$grace->goodManners();
 
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'facebook.png');
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'twitter.jpg');
 	}
 
-	/** @test */
-	public function can_get_a_demeanour()
+	/** @xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxtest */
+	public function can_get_a_manner()
 	{
-		$grace = new ExampleGrace();
-		$demeanour = $grace->demeanour('facebook');
-		dd($demeanour);
+		$grace = new NetworkGrace();
+		$demeanour = $grace->manner('facebook');
+	}
+
+	/** @test */
+	public function can_get_a_manner_url()
+	{
+		$grace = new TestGrace();
+
+		// example.com png
+		$url = $grace->manner('facebook')->url();
+		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $url);
+
+		$url = $grace->manner('twitter')->url();
+		$this->assertEquals('http://localhost/storage/twitter.jpg', $url);
 	}
 }

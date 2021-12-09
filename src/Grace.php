@@ -6,26 +6,27 @@ class Grace
 {
 	protected $source;
 
-	public function manners() {
-		foreach ($this->demeanours as $demeanour) {
-			$mannerClass = $demeanour['manner'];
-			$manner = new $mannerClass();
-
-			if ($this->source) {
-				$manner->source($this->source);
-			}
+	public function goodManners() {
+		foreach ($this->manners as $mannerClass) {
+			$manner = new $mannerClass($this);
 
 			$manner->run();
 		}
 	}
 
-	public function demeanour($network) {
-		return $this->demeanours[$network];
+	public function manner($manner) {
+		$mannerClass = $this->manners[$manner];
+
+		return new $mannerClass($this);
 	}
 
 	public function source($source) {
 		$this->source = $source;
 
 		return $this;
+	}
+
+	public function getSource() {
+		return $this->source;
 	}
 }

@@ -12,15 +12,20 @@ class Manner
 
 	protected $format = 'png';
 
-	public function run() {
-		$path = config('social_graces.save_path') . DIRECTORY_SEPARATOR;
-		$filename = $this->filename ?? md5($this->source) . '.' . $this->format;
+	protected $grace;
 
-		Browsershot::url($this->source)
-			->addChromiumArguments(config('social_graces.chromium_arguments'))
-			->windowSize($this->dimensions[0], $this->dimensions[1])
-			->setScreenshotType($this->format === 'jpg' ? 'jpeg' : $this->format)
-			->save($path . $filename);
+	public function __construct(Grace $grace = null)
+	{
+		$this->grace = $grace;
+
+		// if this manner has no source use the one from the source
+		if ($grace && !property_exists($this, 'source')) {
+			$this->source = $grace->getSource();
+		}
+	}
+
+	public function run() {
+		$this->makeImage();
 
 		return $this;
 	}
@@ -56,7 +61,23 @@ class Manner
 	}
 
 	public function url() {
+		$this->makeImage();
+
 		$filename = $this->filename ?? md5($this->source) . '.' . $this->format;
+
 		return asset(config('social_graces.public_path') . $filename);
+	}
+
+	protected function makeImage() {
+		$path = config('social_graces.save_path') . DIRECTORY_SEPARATOR;
+		$filename = $this->filename ?? md5($this->source) . '.' . $this->format;
+
+		if (!file_exists($path . $filename)) {
+			Browsershot::url($this->source)
+				->addChromiumArguments(config('social_graces.chromium_arguments'))
+				->windowSize($this->dimensions[0], $this->dimensions[1])
+				->setScreenshotType($this->format === 'jpg' ? 'jpeg' : $this->format)
+				->save($path . $filename);
+		}
 	}
 }
