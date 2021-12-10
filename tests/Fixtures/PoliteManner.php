@@ -2,7 +2,7 @@
 
 namespace Riclep\SocialGraces\Tests\Fixtures;
 
-class ExampleManner extends \Riclep\SocialGraces\Manner
+class PoliteManner extends \Riclep\SocialGraces\Manner
 {
 	protected $dimensions = [1200, 630];
 

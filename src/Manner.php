@@ -17,7 +17,7 @@ class Manner
 
 	protected $grace;
 
-	public function __construct(Grace $grace = null)
+	public function __construct(SocialGrace $grace = null)
 	{
 		$this->grace = $grace;
 

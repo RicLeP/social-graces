@@ -2,7 +2,7 @@
 
 namespace Riclep\SocialGraces;
 
-class Grace
+class SocialGrace
 {
 	protected $source;
 

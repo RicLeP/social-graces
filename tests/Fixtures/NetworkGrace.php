@@ -4,7 +4,7 @@ namespace Riclep\SocialGraces\Tests\Fixtures;
 
 use Riclep\SocialGraces\Manner;
 
-class NetworkGrace extends \Riclep\SocialGraces\Grace
+class NetworkGrace extends \Riclep\SocialGraces\SocialGrace
 {
 	protected $source = 'https://example.com';
 

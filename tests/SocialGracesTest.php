@@ -5,8 +5,8 @@ namespace Riclep\SocialGraces\Tests;
 use Riclep\SocialGraces\Tests\Fixtures\DefaultManner;
 use Riclep\SocialGraces\Tests\Fixtures\NetworkGrace;
 use Riclep\SocialGraces\Tests\Fixtures\ExampleJpgManner;
-use Riclep\SocialGraces\Tests\Fixtures\ExampleManner;
-use Riclep\SocialGraces\Tests\Fixtures\TestGrace;
+use Riclep\SocialGraces\Tests\Fixtures\PoliteManner;
+use Riclep\SocialGraces\Tests\Fixtures\TestSocialGrace;
 
 class SocialGracesTest extends TestCase
 {
@@ -14,7 +14,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_run_a_manner()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->please();
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
 		// if you’re wondering, the curiosity of a child is an amazing podcast I record with my son about science, history and storytelling!
@@ -23,7 +23,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_size_an_image_in_manner()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->please();
 
 		$imageSize = getimagesize(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
@@ -35,7 +35,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_size_an_image_with_method()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->width(500)->height(200)->please();
 
 		$imageSize = getimagesize(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
@@ -63,7 +63,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_set_image_format_with_method()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->format('jpg')->please();
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.jpg');
 	}
@@ -71,7 +71,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_get_manner_url()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->please();
 
 		$this->assertEquals('http://localhost/storage/592c092713d6e8a91c1d01831f82c228.png', $manner->url());
@@ -80,7 +80,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_set_manner_source()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->source('https://example.com')->please();
 
 		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $manner->url());
@@ -89,7 +89,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_overwrite_a_manor()
 	{
-		$manner = new ExampleManner();
+		$manner = new PoliteManner();
 		$manner->please();
 		$manner->please(true);
 
@@ -107,8 +107,8 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_run_manners_in_grace()
 	{
-		$grace = new NetworkGrace();
-		$grace->goodManners();
+		$thankYou = new NetworkGrace();
+		$thankYou->goodManners();
 
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'facebook.png');
 		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'twitter.jpg');
@@ -117,7 +117,7 @@ class SocialGracesTest extends TestCase
 	/** @test */
 	public function can_get_a_manner_url()
 	{
-		$grace = new TestGrace();
+		$grace = new TestSocialGrace();
 
 		// example.com png
 		$url = $grace->manner('facebook')->url();
