@@ -6,11 +6,13 @@ class Grace
 {
 	protected $source;
 
+	protected $overwrite = false;
+
 	public function goodManners() {
 		foreach ($this->manners as $mannerClass) {
 			$manner = new $mannerClass($this);
 
-			$manner->run();
+			$manner->please($this->overwrite);
 		}
 	}
 

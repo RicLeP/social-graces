@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^7.4",
         "illuminate/support": "^8.0",
-	    "spatie/browsershot": "^3.52"
+        "spatie/browsershot": "^3.52"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",

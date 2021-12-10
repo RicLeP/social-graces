@@ -6,7 +6,7 @@ class TwitterManner extends  \Riclep\SocialGraces\Manner
 {
 	protected $dimensions = [1000, 500];
 
-	protected $source = 'https://thecuriosityofachild.com/';
+	protected $source = 'https://thecuriosityofachild.com/'; // my podcast!
 
 	protected $filename = 'twitter.jpg';
 
