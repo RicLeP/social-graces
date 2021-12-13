@@ -5,65 +5,129 @@ namespace Riclep\SocialGraces;
 use Illuminate\Support\Facades\Http;
 use Spatie\Browsershot\Browsershot;
 
-class Manner
+abstract class Manner
 {
+	/**
+	 * @var string The URL of a default image to use if the dynamic one can’t be created
+	 */
 	protected $default;
 
+	/**
+	 * @var array Width and height of the image to create
+	 */
 	protected $dimensions = [1500, 800];
 
+	/**
+	 * @var string The filename of the outputted image - leave blank to use a hash
+	 */
 	protected $filename;
 
+	/**
+	 * @var string The format of the generated image (png/jpg)
+	 */
 	protected $format = 'png';
 
+	/**
+	 * @var SocialGrace The Grace this Manner belongs to. It can be standalone.
+	 */
 	protected $grace;
 
+	/**
+	 * @var string The source URL to be used when creating the image, overrides the SocialGrace’s source
+	 */
+	protected $source;
+
+	/**
+	 * @param SocialGrace|null $grace
+	 */
 	public function __construct(SocialGrace $grace = null)
 	{
 		$this->grace = $grace;
 
-		// if this manner has no source use the one from the source
-		if ($grace && !property_exists($this, 'source')) {
+		// if this Manner has no source use the one from the Grace
+		if ($grace && !$this->source) {
 			$this->source = $grace->getSource();
 		}
 	}
 
+	/**
+	 * Politely asks for the image to be created
+	 *
+	 * @param $overwrite
+	 * @return $this
+	 */
 	public function please($overwrite = false) {
 		$this->makeImage($overwrite);
 
 		return $this;
 	}
 
+	/**
+	 * Sets the width of the outputted image
+	 *
+	 * @param $width
+	 * @return $this
+	 */
 	public function width($width) {
 		$this->dimensions[0] = $width;
 
 		return $this;
 	}
 
+	/**
+	 * Sets the height of the outputted image
+	 *
+	 * @param $height
+	 * @return $this
+	 */
 	public function height($height) {
 		$this->dimensions[1] = $height;
 
 		return $this;
 	}
 
+	/**
+	 * Sets the format of the outputted image
+	 *
+	 * @param $format
+	 * @return $this
+	 */
 	public function format($format) {
 		$this->format = $format;
 
 		return $this;
 	}
 
+	/**
+	 * Sets the filename of the outputted image
+	 *
+	 * @param $filename
+	 * @return $this
+	 */
 	public function filename($filename) {
 		$this->filename = $filename;
 
 		return $this;
 	}
 
+	/**
+	 * Sets the source URL to use for the outputted image
+	 *
+	 * @param $source
+	 * @return $this
+	 */
 	public function source($source) {
 		$this->source = $source;
 
 		return $this;
 	}
 
-	public function url() {
+	/**
+	 * Returns the URL of the generated image
+	 *
+	 * @return string|null
+	 */
+	public function thanks() {
 		$this->makeImage();
 
 		$filename = $this->file();
@@ -75,6 +139,13 @@ class Manner
 		return $this->default ?? null;
 	}
 
+	/**
+	 * Creates the image using Browsershot
+	 *
+	 * @param $overwrite
+	 * @return void
+	 * @throws \Spatie\Browsershot\Exceptions\CouldNotTakeBrowsershot
+	 */
 	protected function makeImage($overwrite = false) {
 		$path = $this->path();
 		$filename = $this->file();
@@ -91,10 +162,20 @@ class Manner
 		}
 	}
 
+	/**
+	 * The path to the saved image
+	 *
+	 * @return string
+	 */
 	private function path() {
 		return config('social_graces.save_path') . DIRECTORY_SEPARATOR;
 	}
 
+	/**
+	 * The filename of the image
+	 *
+	 * @return string
+	 */
 	private function file() {
 		return $this->filename ?? md5($this->source) . '.' . $this->format;
 	}

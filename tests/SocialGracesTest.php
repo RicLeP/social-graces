@@ -74,7 +74,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->please();
 
-		$this->assertEquals('http://localhost/storage/592c092713d6e8a91c1d01831f82c228.png', $manner->url());
+		$this->assertEquals('http://localhost/storage/592c092713d6e8a91c1d01831f82c228.png', $manner->thanks());
 	}
 
 	/** @test */
@@ -83,11 +83,11 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->source('https://example.com')->please();
 
-		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $manner->url());
+		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $manner->thanks());
 	}
 
 	/** @test */
-	public function can_overwrite_a_manor()
+	public function can_overwrite_a_manor_image()
 	{
 		$manner = new PoliteManner();
 		$manner->please();
@@ -101,7 +101,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new DefaultManner();
 
-		$this->assertEquals('hello.jpg', $manner->url());
+		$this->assertEquals('hello.jpg', $manner->thanks());
 	}
 
 	/** @test */

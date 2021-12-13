@@ -1,16 +1,22 @@
 {
     "name": "riclep/social-graces",
-    "description": "A wrapper around Browsershot for managing dynamic social share images",
+    "description": "A wrapper around Browsershot for managing dynamic social images - OGP, Twitter etc",
     "keywords": [
         "riclep",
-        "social-graces"
+        "social-graces",
+	    "social images",
+	    "OGP",
+	    "Open Graph Protocol",
+	    "Facebook",
+	    "Twitter",
+	    "Sharing"
     ],
     "homepage": "https://github.com/riclep/social-graces",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Richard Le Poidein",
+            "name": "Richard Le Poidevin",
             "email": "ric@sirric.co.uk",
             "role": "Developer"
         }
@@ -49,10 +55,7 @@
         "laravel": {
             "providers": [
                 "Riclep\\SocialGraces\\SocialGracesServiceProvider"
-            ],
-            "aliases": {
-                "SocialGraces": "Riclep\\SocialGraces\\SocialGracesFacade"
-            }
+            ]
         }
     }
 }
