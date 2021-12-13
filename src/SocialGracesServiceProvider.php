@@ -13,8 +13,8 @@ class SocialGracesServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('social-graces.php'),
-            ], 'config');
+                __DIR__.'/../config/config.php' => config_path('socialgraces.php'),
+            ], 'socialgraces');
 
             // Registering package commands.
             // $this->commands([]);
@@ -27,6 +27,6 @@ class SocialGracesServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'social-graces');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'socialgraces');
     }
 }

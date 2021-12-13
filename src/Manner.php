@@ -133,7 +133,7 @@ abstract class Manner
 		$filename = $this->file();
 
 		if (file_exists($this->path() . $filename)) {
-			return asset(config('social_graces.public_path') . $filename);
+			return asset(config('socialgraces.public_path') . $filename);
 		}
 
 		return $this->default ?? null;
@@ -154,7 +154,7 @@ abstract class Manner
 			$response = Http::get($this->source);
 			if ($response->successful()) {
 				Browsershot::url($this->source)
-					->addChromiumArguments(config('social_graces.chromium_arguments'))
+					->addChromiumArguments(config('socialgraces.chromium_arguments') ?? [])
 					->windowSize($this->dimensions[0], $this->dimensions[1])
 					->setScreenshotType($this->format === 'jpg' ? 'jpeg' : $this->format)
 					->save($path . $filename);
@@ -168,7 +168,7 @@ abstract class Manner
 	 * @return string
 	 */
 	private function path() {
-		return config('social_graces.save_path') . DIRECTORY_SEPARATOR;
+		return config('socialgraces.save_path') . DIRECTORY_SEPARATOR;
 	}
 
 	/**

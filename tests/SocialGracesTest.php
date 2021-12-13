@@ -16,7 +16,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new PoliteManner();
 		$manner->please();
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
 		// if you’re wondering, the curiosity of a child is an amazing podcast I record with my son about science, history and storytelling!
 	}
 
@@ -26,7 +26,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->please();
 
-		$imageSize = getimagesize(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
 
 		$this->assertEquals(1200, $imageSize[0]);
 		$this->assertEquals(630, $imageSize[1]);
@@ -38,7 +38,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->width(500)->height(200)->please();
 
-		$imageSize = getimagesize(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
 
 		$this->assertEquals(500, $imageSize[0]);
 		$this->assertEquals(200, $imageSize[1]);
@@ -49,7 +49,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new ExampleJpgManner();
 		$manner->please();
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'example.jpg');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . 'example.jpg');
 	}
 
 	/** @test */
@@ -57,7 +57,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new ExampleJpgManner();
 		$manner->filename('hello.jpg')->please();
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'hello.jpg');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . 'hello.jpg');
 	}
 
 	/** @test */
@@ -65,7 +65,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new PoliteManner();
 		$manner->format('jpg')->please();
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.jpg');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.jpg');
 	}
 
 	/** @test */
@@ -93,7 +93,7 @@ class SocialGracesTest extends TestCase
 		$manner->please();
 		$manner->please(true);
 
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
 	}
 
 	/** @test */
@@ -110,8 +110,8 @@ class SocialGracesTest extends TestCase
 		$thankYou = new NetworkGrace();
 		$thankYou->goodManners();
 
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'facebook.png');
-		$this->assertFileExists(config('social_graces.save_path') . DIRECTORY_SEPARATOR . 'twitter.jpg');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . 'facebook.png');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . 'twitter.jpg');
 	}
 
 	/** @test */
@@ -120,11 +120,11 @@ class SocialGracesTest extends TestCase
 		$grace = new TestSocialGrace();
 
 		// example.com png
-		$url = $grace->manner('facebook')->url();
+		$url = $grace->manner('facebook')->thanks();
 		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $url);
 
 		// thecuriosityofachild.com jpg
-		$url = $grace->manner('twitter')->url();
+		$url = $grace->manner('twitter')->thanks();
 		$this->assertEquals('http://localhost/storage/twitter.jpg', $url);
 	}
 }
