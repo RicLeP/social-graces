@@ -127,8 +127,10 @@ abstract class Manner
 	 *
 	 * @return string|null
 	 */
-	public function thanks() {
-		$this->makeImage();
+	public function thanks($makeImage = true) {
+		if ($makeImage) {
+			$this->makeImage();
+		}
 
 		$filename = $this->file();
 
