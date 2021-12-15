@@ -16,7 +16,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new PoliteManner();
 		$manner->please();
-		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/' . json_encode([1200, 630])) . '.png');
 		// if you’re wondering, the curiosity of a child is an amazing podcast I record with my son about science, history and storytelling!
 	}
 
@@ -26,7 +26,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->please();
 
-		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/' . json_encode([1200, 630])) . '.png');
 
 		$this->assertEquals(1200, $imageSize[0]);
 		$this->assertEquals(630, $imageSize[1]);
@@ -38,7 +38,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->width(500)->height(200)->please();
 
-		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$imageSize = getimagesize(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/' . json_encode([500, 200])) . '.png');
 
 		$this->assertEquals(500, $imageSize[0]);
 		$this->assertEquals(200, $imageSize[1]);
@@ -65,7 +65,7 @@ class SocialGracesTest extends TestCase
 	{
 		$manner = new PoliteManner();
 		$manner->format('jpg')->please();
-		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.jpg');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/' . json_encode([1200, 630])) . '.jpg');
 	}
 
 	/** @test */
@@ -74,7 +74,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->please();
 
-		$this->assertEquals('http://localhost/storage/592c092713d6e8a91c1d01831f82c228.png', $manner->thanks());
+		$this->assertEquals('http://localhost/storage/118cb08347f48beb239203a1b98019b6.png', $manner->thanks());
 	}
 
 	/** @test */
@@ -83,7 +83,7 @@ class SocialGracesTest extends TestCase
 		$manner = new PoliteManner();
 		$manner->source('https://example.com')->please();
 
-		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $manner->thanks());
+		$this->assertEquals('http://localhost/storage/26f38783c6eba9eb0f6c2984da5a86fd.png', $manner->thanks());
 	}
 
 	/** @test */
@@ -93,7 +93,7 @@ class SocialGracesTest extends TestCase
 		$manner->please();
 		$manner->please(true);
 
-		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/') . '.png');
+		$this->assertFileExists(config('socialgraces.save_path') . DIRECTORY_SEPARATOR . md5('https://thecuriosityofachild.com/' . json_encode([1200, 630])) . '.png');
 	}
 
 	/** @test */
@@ -121,7 +121,7 @@ class SocialGracesTest extends TestCase
 
 		// example.com png
 		$url = $grace->manner('facebook')->thanks();
-		$this->assertEquals('http://localhost/storage/c984d06aafbecf6bc55569f964148ea3.png', $url);
+		$this->assertEquals('http://localhost/storage/26f38783c6eba9eb0f6c2984da5a86fd.png', $url);
 
 		// thecuriosityofachild.com jpg
 		$url = $grace->manner('twitter')->thanks();

@@ -177,6 +177,6 @@ abstract class Manner
 	 * @return string
 	 */
 	private function file() {
-		return $this->filename ?? md5($this->source) . '.' . $this->format;
+		return $this->filename ?? md5($this->source . json_encode($this->dimensions)) . '.' . $this->format;
 	}
 }
