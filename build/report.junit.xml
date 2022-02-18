@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="39.396786">
-    <testsuite name="Test Suite" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="39.396786">
-      <testsuite name="Riclep\SocialGraces\Tests\SocialGracesTest" file="/app/tests/SocialGracesTest.php" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="39.396786">
-        <testcase name="can_run_a_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="15" assertions="1" time="3.419406"/>
-        <testcase name="can_size_an_image_in_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="24" assertions="2" time="3.065685"/>
-        <testcase name="can_size_an_image_with_method" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="36" assertions="2" time="2.775190"/>
-        <testcase name="can_set_image_format_in_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="48" assertions="1" time="2.759748"/>
-        <testcase name="can_set_filename" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="56" assertions="1" time="2.900680"/>
-        <testcase name="can_set_image_format_with_method" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="64" assertions="1" time="3.032405"/>
-        <testcase name="can_get_manner_url" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="72" assertions="1" time="3.056380"/>
-        <testcase name="can_set_manner_source" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="81" assertions="1" time="1.572143"/>
-        <testcase name="can_overwrite_a_manor_image" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="90" assertions="1" time="6.172386"/>
-        <testcase name="can_use_default_image" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="100" assertions="1" time="0.337719"/>
-        <testcase name="can_run_manners_in_grace" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="108" assertions="2" time="5.907370"/>
-        <testcase name="can_get_a_manner_url" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="118" assertions="2" time="4.397674"/>
+  <testsuite name="" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="45.830736">
+    <testsuite name="Test Suite" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="45.830736">
+      <testsuite name="Riclep\SocialGraces\Tests\SocialGracesTest" file="/app/tests/SocialGracesTest.php" tests="12" assertions="16" errors="0" warnings="0" failures="0" skipped="0" time="45.830736">
+        <testcase name="can_run_a_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="15" assertions="1" time="3.357238"/>
+        <testcase name="can_size_an_image_in_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="24" assertions="2" time="3.771470"/>
+        <testcase name="can_size_an_image_with_method" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="36" assertions="2" time="3.533165"/>
+        <testcase name="can_set_image_format_in_manner" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="48" assertions="1" time="2.791304"/>
+        <testcase name="can_set_filename" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="56" assertions="1" time="3.350719"/>
+        <testcase name="can_set_image_format_with_method" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="64" assertions="1" time="3.715234"/>
+        <testcase name="can_get_manner_url" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="72" assertions="1" time="4.543957"/>
+        <testcase name="can_set_manner_source" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="81" assertions="1" time="1.602354"/>
+        <testcase name="can_overwrite_a_manor_image" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="90" assertions="1" time="7.929662"/>
+        <testcase name="can_use_default_image" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="100" assertions="1" time="0.347668"/>
+        <testcase name="can_run_manners_in_grace" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="108" assertions="2" time="5.622504"/>
+        <testcase name="can_get_a_manner_url" class="Riclep\SocialGraces\Tests\SocialGracesTest" classname="Riclep.SocialGraces.Tests.SocialGracesTest" file="/app/tests/SocialGracesTest.php" line="118" assertions="2" time="5.265460"/>
       </testsuite>
     </testsuite>
   </testsuite>
