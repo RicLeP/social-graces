@@ -1,4 +1,4 @@
-# Very short description of the package
+# Social Graces; a polite way to create dymanic social share images
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/riclep/social-graces.svg?style=flat-square)](https://packagist.org/packages/riclep/social-graces)
 [![Total Downloads](https://img.shields.io/packagist/dt/riclep/social-graces.svg?style=flat-square)](https://packagist.org/packages/riclep/social-graces)
