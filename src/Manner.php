@@ -3,6 +3,8 @@
 namespace Riclep\SocialGraces;
 
 use Illuminate\Support\Facades\Http;
+use Spatie\Image\Manipulations;
+use Wnx\SidecarBrowsershot\BrowsershotLambda;
 
 abstract class Manner
 {
@@ -143,6 +145,25 @@ abstract class Manner
 		return $this->default ?? null;
 	}
 
+    public function htmlThanks(): string
+    {
+        $this->makeImage();
+
+        $filename = $this->file();
+
+        if (file_exists($this->path() . $filename)) {
+            $url = asset(config('socialgraces.public_path') . $filename);
+        } else {
+            $url = $this->default ?? null;
+        }
+
+        if ($url) {
+            return '<meta name="twitter:image" content="' . $url . '" >';
+        }
+
+        return '';
+    }
+
 	/**
 	 * Creates the image using Browsershot
 	 *
@@ -157,11 +178,10 @@ abstract class Manner
 		if ($overwrite || !file_exists($path . $filename)) {
 			$response = Http::get($this->source);
 			if ($response->successful()) {
-				$this->driver::url($this->source)
-					->addChromiumArguments(config('socialgraces.chromium_arguments') ?? [])
-					->windowSize($this->dimensions[0], $this->dimensions[1])
-					->setScreenshotType($this->format === 'jpg' ? 'jpeg' : $this->format)
-					->save($path . $filename);
+                BrowsershotLambda::url($this->source)
+                    ->windowSize($this->dimensions[0], $this->dimensions[1])
+                    ->setScreenshotType($this->format === 'jpg' ? 'jpeg' : $this->format)
+                    ->save($path . $filename);
 			}
 		}
 	}

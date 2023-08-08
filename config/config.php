@@ -4,7 +4,7 @@
  * You can place your custom package configuration in here.
  */
 return [
-	'chromium_arguments' => [],
+    'enabled' => env('SOCIAL_GRACES_ENABLED', true),
 
 	'save_path' => storage_path('app/public/'),
 
