@@ -25,7 +25,7 @@
         "php": "^8.0",
         "guzzlehttp/guzzle": "^7.4",
         "illuminate/support": "^9.0|^10.0|^11.0",
-        "wnx/sidecar-browsershot": "v1.9.1"
+        "wnx/sidecar-browsershot": "v2.0"
     },
     "require-dev": {
         "orchestra/testbench": "^9.0",
