@@ -22,13 +22,13 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "guzzlehttp/guzzle": "^7.4",
-        "illuminate/support": "^8.0|^9.0|^10.0",
+        "illuminate/support": "^9.0|^10.0|^11.0",
         "wnx/sidecar-browsershot": "v1.9.1"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
+        "orchestra/testbench": "^9.0",
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
